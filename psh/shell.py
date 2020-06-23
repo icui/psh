@@ -55,7 +55,7 @@ def load(src: str):
         with open(src, 'r') as tf:
             return json.load(tf)
     
-    elif ext == '.pickle':
+    elif ext == '.pickle' or ext == '.p':
         with open(src, 'rb') as bf:
             return pickle.load(bf)
     
@@ -68,7 +68,7 @@ def dump(obj, dst: str):
         with open(dst, 'w') as tf:
             return json.dump(obj, tf)
     
-    elif ext == '.pickle':
+    elif ext == '.pickle' or ext == '.p':
         with open(dst, 'wb') as bf:
             return pickle.dump(obj, bf)
     
