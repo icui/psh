@@ -1,6 +1,6 @@
 import pickle
 import json
-from os import path
+from os import path, fsync
 from glob import glob
 from subprocess import check_call
 
@@ -39,6 +39,13 @@ def ls(src: str, reg: str = '*', isdir=None):
         entries.append(entry.split('/')[-1])
 
     return entries
+
+
+def echo(txt: str, dst: str, mode: str = 'w'):
+    with open(dst, mode) as f:
+        f.write(txt)
+        f.flush()
+        fsync(f.fileno())
 
 
 def load(src: str):
