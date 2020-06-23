@@ -9,7 +9,7 @@ exists = path.exists
 
 
 def mkdir(dst: str):
-    check_call('mkdir -p {dst}', shell=True)
+    check_call(f'mkdir -p {dst}', shell=True)
 
 
 def cp(src: str, dst: str):
